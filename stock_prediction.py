@@ -35,7 +35,7 @@ from tensorflow.keras.layers import Dense, Dropout, LSTM, InputLayer
 # If not, save the data into a directory
 #------------------------------------------------------------------------------
 # DATA_SOURCE = "yahoo"
-COMPANY = 'CBA.AX'
+COMPANY = '.AX'
 
 TRAIN_START = '2020-01-01'     # Start date to read
 TRAIN_END = '2023-08-01'       # End date to read
@@ -59,7 +59,7 @@ data = yf.download(COMPANY,TRAIN_START,TRAIN_END)
 #------------------------------------------------------------------------------
 PRICE_VALUE = "Close"
 
-scaler = MinMaxScaler(feature_range=(0, 1)) 
+scaler = MinMaxScaler(feature_range=(0, 1))  
 # Note that, by default, feature_range=(0, 1). Thus, if you want a different 
 # feature_range (min,max) then you'll need to specify it here
 scaled_data = scaler.fit_transform(data[PRICE_VALUE].values.reshape(-1, 1)) 
